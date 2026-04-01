@@ -1,0 +1,325 @@
+body{
+    background-image: url(png/fundo.jpeg) ;
+    background-repeat:no-repeat ;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Times New Roman', Times, serif;
+}
+.menu , .rodape{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    align-items: center;
+    background-color: #82b342d5 ;
+    border-bottom: 1px solid #a2d5a2 ;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+   
+}
+.logotipo{
+    display: flex;
+    align-items: center;
+    
+}
+.logotipo img{
+    width: 55px;
+}
+.menu nav ul{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+.menu nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+
+}
+.banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.774);
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+
+}
+.banner p{
+    font-size: 25px;
+}
+.banner img{
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    height: auto;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 40px;  
+}
+#conteudoBanner{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 900px;
+    padding: 0;
+    box-sizing: border-box;
+}
+#meuBanner{
+    width: 100%;
+    display: block;
+}
+
+.btn-seta{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 20;
+    opacity: 0; 
+}
+
+.btn-seta:hover{
+    opacity: 0.08; 
+    background-color: rgba(255,255,255,0.3);
+}
+
+.btn-voltar{
+    left: 0;
+}
+
+.btn-avancar{
+    right: 0;
+}
+
+.btn-seta {
+    pointer-events: auto;
+}
+
+#areasAtividades{
+    position: relative;
+    margin: 20px auto 0;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#parquesLista {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 12px auto 0;
+}
+
+.parqueBtn {
+    min-width: 220px;
+    max-width: 220px;
+    width: 220px;
+    text-align: center;
+}
+
+#botaoMaisInfoContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    gap: 10px;
+}
+
+#botaoMaisInfo,
+.parqueBtn {
+    width: auto;
+    max-width: 900px;
+    padding: 12px 16px;
+    background-color: #82b342d5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#botaoMaisInfo:hover,
+.parqueBtn:hover {
+    background-color: #43a047;
+}
+#botaoMaisInfo:hover{
+    background-color: #43a047;
+}
+#areasAtividades ul{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: auto;
+}
+
+#areasAtividades li{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #23411f;
+    white-space: nowrap;
+    width: auto;
+    box-sizing: border-box;
+}
+
+#areasAtividades li span{
+    font-size: 20px;
+}
+
+#areasAtividades li img{
+    width: 120px;
+    height: 120px;
+    margin-bottom: 0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #82b342;
+    border-radius: 8px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #69931a;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 110;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    color: #333;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #23411f;
+    font-size: 22px;
+}
+
+.modal-content p {
+    margin: 12px 0;
+    color: #333;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.modal-secoes {
+    margin: 18px 0;
+}
+
+.modal-secao-titulo {
+    margin-top: 14px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #23411f;
+}
+
+.modal-secao-item {
+    margin: 8px 0;
+    padding: 12px;
+    background-color: #f9fdf5;
+    border: 1px solid #dfe9d4;
+    color: #333;
+    line-height: 1.6;
+    border-radius: 4px;
+}
+
+.modal-rodape {
+    margin-top: 18px;
+    font-size: 16px;
+    color: #666;
+}
+
+

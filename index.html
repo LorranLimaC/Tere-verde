@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tere Verde</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header class="menu">
+   <div class = "logotipo">
+        <a href="index.html">
+            <img src="png/Logotipo-TereVerde.png" alt="Tere Verde Logotipo">
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="atividades.html">Atividades</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+
+    </nav>
+</header>
+<body>
+    <section class="banner">
+        <h1 id="tituloBanner">Bem-vindo à Terê Verde</h1>
+        <p>Descobrir atividades e oportunidades para você se conectar com a natureza.</p>
+        <p>Venha conhecer os parques de terêsopolis</p>
+        <div id="parquesLista">
+            <button class="parqueBtn" data-parque="Parque nacinal da serra dos Órgãos">Parque nacinal da serra dos Órgãos</button>
+            <button class="parqueBtn" data-parque="Parque estadual dos tres picos">   Parque estadual dos tres picos</button>
+            <button class="parqueBtn" data-parque="Parque montanhas de teresopolis">Parque Montanhas de Teresópolis</button>
+        </div>
+        <h1 id = TituloParque>Parque nacinal da serra dos Órgãos</h1>
+        <div id="conteudoBanner">
+            <!-- overlays invisíveis ocupam metade esquerda/direita da imagem -->
+            <button onclick="mudarManual(-1)" class="btn-seta btn-voltar" aria-label="Voltar"></button>
+            <img id="meuBanner" src="png/serraDosOrgoas/pedradosino.jpeg" alt="banner">
+            <button onclick="mudarManual(1)" class="btn-seta btn-avancar" aria-label="Avançar"></button>
+        </div>
+        <div id="areasTitulo">
+            <h1>Áreas de convivência e atividades</h1>
+        </div>
+        <div id="areasAtividades">
+            <ul>
+                <li class="atv-estacionamento"><img src="png/Icones/estacionamento.png" alt="estacionamento"><span>Estacionamento</span></li>
+                <li class="atv-camping"><img src="png/Icones/campings.png" alt="campings"><span>Camping</span></li>
+                <li class="atv-cachoeira"><img src="png/Icones/cachoeira.png" alt="cachoeiras"><span>Cachoeira</span></li>
+                <li class="atv-trilha"><img src="png/Icones/trilha.png" alt="trilhas"><span>Trilhas</span></li>
+                <li class="atv-escalada"><img src="png/Icones/escalador.png" alt="escalada"><span>Escalada</span></li>
+            </ul>
+        </div>
+        <div id="botaoMaisInfoContainer">
+            <button id="botaoMaisInfo">Mais informações</button>
+        </div>
+        
+    </section>
+    <script type="text/javascript" src="index.js"> </script>
+</body>
+<footer class="rodape">
+    <p>&copy; 2026 Terê Verde. Todos os direitos reservados.</p>
+</footer>
+</html>
