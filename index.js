@@ -122,7 +122,7 @@ const modalData = {
         {
             titulo: 'Funcionamento e Dias',
             conteudo: [
-                'O Parque funciona de terça a domingo e feriados nacionais e estaduais do Rio de Janeiro',
+                'O Parque funciona de terça a domingo e feriados nacionais e estaduais do Rio de Janeiro das 07:00h às 16h',
                 'As segundas-feiras o parque permanece fechado para manutenção interna, não havendo visitação.',
                 '<strong>OBS:</strong> Caso o feriado ou véspera de feriado (nacionais e estaduais RJ) caia na segunda-feira, o parque abrirá para visitação.'
             ]

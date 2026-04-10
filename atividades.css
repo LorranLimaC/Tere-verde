@@ -1,0 +1,87 @@
+
+#parque {
+    text-align: center;
+    border: 3px solid #2d5016;
+    border-radius: 12px;
+    padding: 10px 10px;
+    margin: 10px;
+    background-color: #82b342d3;
+}
+
+#conteudoAtividades {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.atividadeCard {
+    background: white;
+    border: 2px solid #2d5016;
+    border-radius: 12px;
+    padding: 18px;
+    flex: 1 1 45%;
+    min-width: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    
+}
+
+.atividadeCard h2 {
+    margin-top: 0;
+    text-align: center;
+    color: black;
+}
+
+.parqueNome {
+    font-weight: bold;
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    margin: 0 0 5px 0;
+    background: #f0f8e7;
+    border: 1px solid #2d5016;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.imagemCaixa {
+    margin-top: 16px;
+    height: 200px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+.infoQuadrado {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.quadrado {
+    background: #f0f8e7;
+    border: 1px solid #2d5016;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+    flex: 1;
+    text-align: center;
+}
+
+.campoInformacao {
+    margin: 10px 0;
+    font-size: 20px;
+    line-height: 1.5;
+    color: black;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}

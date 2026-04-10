@@ -1,0 +1,30 @@
+input {
+    border-radius: 5px;
+    font-size: 15px;
+    padding: 8px;
+    margin: 5px 0;
+    
+}
+
+input::placeholder {
+    text-transform: uppercase;
+}
+
+#botaoLogin {
+    width: auto;
+    max-width: 900px;
+    padding: 12px 16px;
+    background-color: #82b342d5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#botaoLogin:hover {
+    background-color: #43a047;
+}
+
+
