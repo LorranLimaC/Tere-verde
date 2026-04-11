@@ -30,7 +30,8 @@
     min-width: 280px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer; 
+    cursor: pointer;
+   
 }
 .atividadeCard:hover {
     transform: translateY(-8px); /* Faz o card "subir" */
@@ -90,4 +91,20 @@
     color: black;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
+}
+
+@media (max-width: 768px) {
+    .parqueNome {
+        font-size: 18px;
+    }
+    .campoInformacao {
+        font-size: 15px;
+    }
+    .atividadeCard {
+        flex: 1 1 100%;
+        padding: 12px;
+    }
+    .imagemCaixa {
+        height: 150px;
+    }
 }
