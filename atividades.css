@@ -29,7 +29,13 @@
     flex: 1 1 45%;
     min-width: 280px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; 
+}
+.atividadeCard:hover {
+    transform: translateY(-8px); /* Faz o card "subir" */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra mais forte */
+    border-color: #82b342; /* Muda a cor da borda para o verde mais claro */
 }
 
 .atividadeCard h2 {
