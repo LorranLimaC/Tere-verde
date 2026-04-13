@@ -26,5 +26,26 @@ input::placeholder {
 #botaoLogin:hover {
     background-color: #43a047;
 }
+/* Estilo base da mensagem (o que antes estava no JS) */
+.mensagem-estilizada {
+    margin-top: 12px;
+    font-weight: 700;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 8px;
+}
 
+/* Variações de cores (Opcional, mas recomendado) */
+.mensagem-erro {
+    background-color: #ffdde1;
+    color: #d32f2f;
+    border: 1px solid #d32f2f;
+}
+
+.mensagem-sucesso {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
 
