@@ -117,7 +117,7 @@ function reiniciarTimer(){
 
 // Dados do modal
 const modalData = {
-    titulo: 'Informações do Parque',
+    titulo: 'Informações do Parque nacinal da serra dos Órgãos',
     secoes: [
         {
             titulo: 'Funcionamento e Dias',
@@ -133,9 +133,20 @@ const modalData = {
                 'Há limite diário de veículos. A entrada é por ordem de chegada.',
                 '<strong>Lotação máxima atingida?</strong> A entrada de veículos fica restrita a pessoas com mobilidade reduzida (idosos acima de 80 anos, crianças de colo, pessoas com deficiência)'
             ]
+        },
+        {
+             titulo: 'Regras de Conduta',
+            conteudo: [
+                'Proibido soltar pipa.',
+                'Proibido churrasco.',
+                'Proibido instrumentos sonoros.',
+                'Proibido fogueiras.',
+                'Proibido animais domésticos.',
+                'Proibido bebidas alcoólicas.',
+            ]
         }
     ],
-    rodape: 'Para mais informações, entre em contato com nossa central de atendimento.'
+    rodape: 'Obrigado por respeitar as regras ambientais e de segurança.'
 };
 
 const modalDataMontanhas = {

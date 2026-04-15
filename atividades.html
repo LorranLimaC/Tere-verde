@@ -15,7 +15,7 @@
     </div>
     <nav>
         <ul>   
-            <li><a href="atividades.html">Atividades</a></li>
+            <li><a href="index.html">Início</a></li>
             <li><a href="login.html">Login</a></li>
         </ul>
 
@@ -24,7 +24,33 @@
 <body>
     <section class="atividades">
         
-        <h1 id ="parque">Atividades</h1>
+        <h1 id ="parque"><a href="atividades.html">Atividades</a></h1>
+        <section class="filtros">
+            <div class="conteudos-filtros">
+                    <label for="filtroParque">Parque:</label>
+                    <select id="filtroParque">
+                        <option value="Todos">Todos os parques</option>
+                        <option value="Parque nacinal da serra dos Órgãos">Parque nacional da serra dos Órgãos</option>
+                        <option value="Parque estadual dos tres picos">Parque estadual dos tres picos</option>
+                        <option value="Parque montanhas de teresopolis">Parque montanhas de teresopolis</option>
+                    </select>
+                    <label for="filtroDificuldade">Dificuldade:</label>
+                    <select id="filtroDificuldade">
+                        <option value="Todos">Todas as dificuldades</option>
+                        <option value="Fácil">Fácil</option>
+                        <option value="Médio">Médio</option>
+                        <option value="Difícil">Difícil</option>
+                        
+                    </select>
+                    <label for="filtroTipo">Tipo:</label>
+                    <select id="filtroTipo">
+                        <option value="Todos">Todas as atividades</option>
+                        <option value="trilha">Trilhas</option>
+                        <option value="cachoeira">Cachoeiras</option>
+                        <option value="escalada">Escalada</option>
+                    </select>
+            </div>  
+         </section>
         <div id="conteudoAtividades">
             <!-- Cards serão gerados pelo JavaScript -->
         </div>

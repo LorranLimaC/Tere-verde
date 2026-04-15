@@ -1,11 +1,19 @@
 
 #parque {
     text-align: center;
-    border: 3px solid #2d5016;
     border-radius: 12px;
     padding: 10px 10px;
     margin: 10px;
     background-color: #82b342d3;
+}
+#parque a{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    
+   
 }
 
 #conteudoAtividades {
@@ -30,7 +38,7 @@
     min-width: 280px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    
    
 }
 .atividadeCard:hover {
@@ -72,7 +80,7 @@
     flex-wrap: wrap;
 }
 
-.quadrado {
+.quadrado{
     background: #f0f8e7;
     border: 1px solid #2d5016;
     border-radius: 8px;
@@ -108,3 +116,37 @@
         height: 150px;
     }
 }
+.filtros{
+    background-color: #82b342d3;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+     margin: 10px;
+}
+.conteudos-filtros label{
+    margin-left: 15px;
+    font-weight: bold;
+}
+.conteudos-filtros select{
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.mensagem-vazia{
+
+    background: white;
+    border: 2px solid #2d5016;
+    border-radius: 12px;
+    padding: 18px;
+    flex: 1 1 45%;
+    min-width: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+ }
+ .mensagem-vazia p{
+    text-align: center;
+    font-size: 25px;
+ }

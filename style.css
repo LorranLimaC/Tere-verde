@@ -321,5 +321,18 @@ body{
     font-size: 16px;
     color: #666;
 }
+.banner nav ul{
+    display: flex;
+    list-style: none;
+    margin: 10;
+    padding: 0;
+    gap: 20px;
+}
+.banner nav ul li a {
+    text-decoration: none;
+    color: #f9fdf5;
+    font-size: 16px;
+    font-weight: bold;
+    
 
-
+}
