@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,7 @@
 
 </head>
 <header class="menu">
-   <div class = "logotipo">
+    <div class="logotipo">
         <a href="index.html">
             <img src="png/Logotipo-TereVerde.png" alt="Tere Verde Logotipo">
         </a>
@@ -17,11 +18,12 @@
     <nav>
         <ul>
             <li><a href="index.html">inicio</a></li>
-            <li><a href="login.html">Login</a></li>
+            <li><a href="login.html">Sair</a></li>
         </ul>
 
     </nav>
 </header>
+
 <body>
 
     <div class="container-admin">
@@ -37,47 +39,58 @@
 
             <div class="form-grupo" style="display: flex; gap: 10px;">
                 <div style="flex: 1;">
-                    <label for="data">Data*</label>
+                    <label for="data">Data Inicio*</label>
                     <input type="date" id="data" required>
                 </div>
                 <div style="flex: 1;">
-                    <label for="horario">Horário*</label>
+                    <label for="dataTer">Data Termino*</label>
+                    <input type="date" id="dataTer" required>
+                </div>
+                <div style="flex: 1;">
+                    <label for="horario">Horário Inicio*</label>
                     <input type="time" id="horario" required>
+                </div>
+                <div style="flex: 1;">
+                    <label for="horarioTer">Horário Termino*</label>
+                    <input type="time" id="horarioTer" required>
                 </div>
             </div>
 
-            <div class="form-grupo">
-                <label for="local">Local*</label>
-                <input type="text" id="local" placeholder="Ex: Sede Teresópolis" required>
-            </div>
+            <label for="Local">Local:</label>
+            <select id="local" required>
+                <option value="SerraDosOrgaos">Parque nacinal da serra dos Órgãos</option>
+                <option value="TresPicos">Parque estadual dos tres picos</option>
+                <option value="MontanhasTeresopolis">Parque montanhas de teresopolis</option>
+            </select>
 
             <div class="form-grupo">
                 <label for="descricao">Descrição Breve</label>
                 <textarea id="descricao" rows="4" placeholder="Detalhes sobre o evento..."></textarea>
             </div>
 
-            <button type="submit" class="btn-salvar">Salvar Evento</button>
-            <a href="dashboard.html" style="display:block; text-align:center; margin-top:15px; color:#666; text-decoration:none;">Voltar ao Painel</a>
+            <button type="submit" class="btn">Salvar Evento💾</button>
+
+
         </form>
+
+        <button class="btn" id="btnAbrirEdicao">Gerenciar Eventos ⚙️</button>
+
+        <div id="modalEdicao" class="modal">
+            <div class="modal-conteudo">
+                <span class="fechar">&times;</span>
+                <h3>Gerenciar Eventos Salvos</h3>
+                <div id="listaEdicao">
+                </div>
+            </div>
+        </div>
+
     </div>
 
-    <script>
-        document.getElementById('formEvento').addEventListener('submit', function(e) {
-            e.preventDefault(); // Não deixa a página recarregar
 
-            // Pegando os valores
-            const nome = document.getElementById('nome').value;
-            const data = document.getElementById('data').value;
-            const local = document.getElementById('local').value;
-
-            // Validação simples (o 'required' do HTML já ajuda, mas aqui reforçamos)
-            if(nome && data && local) {
-                alert("✅ Sucesso! O evento '" + nome + "' foi cadastrado e ficará visível em breve.");
-                this.reset(); // Limpa o formulário
-            } else {
-                alert("❌ Erro: Por favor, preencha todos os campos obrigatórios (*).");
-            }
-        });
-    </script>
 </body>
+<script src="admin_eventos.js"></script>
+<footer class="rodape">
+    <p>&copy; 2026 Terê Verde. Todos os direitos reservados.</p>
+</footer>
+
 </html>
