@@ -21,6 +21,7 @@ body{
 .logotipo{
     display: flex;
     align-items: center;
+    margin-left: 40px;
     
 }
 .logotipo img{
@@ -29,7 +30,7 @@ body{
 .menu nav ul{
     display: flex;
     list-style: none;
-    margin: 0;
+    margin-right: 40px;
     padding: 0;
     gap: 20px;
 }
@@ -53,7 +54,7 @@ body{
 
 }
 .banner p{
-    font-size: 25px;
+    font-size:   25px;
 }
 .banner img{
     align-items: center;
@@ -335,4 +336,15 @@ body{
     font-weight: bold;
     
 
+}
+
+@media screen and (max-width: 480px) {
+    .logotipo{
+        margin-left: 5px;
+    }
+    .menu nav ul{
+        margin-right: 5px;
+    }
+
+    
 }

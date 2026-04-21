@@ -1,6 +1,7 @@
 // --- LÓGICA DE SALVAR ---
 document.getElementById('formEvento').addEventListener('submit', function(e) {
     e.preventDefault();
+    console.log(document.getElementById('data').value)
 
     const novoEvento = {
         id: Date.now(),
