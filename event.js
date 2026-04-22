@@ -274,3 +274,35 @@ try {
 } catch (error) {
   console.error(error);
 }
+
+// --- EXCLUIR EVENTO ---
+function excluirEvento(id) {
+    if (confirm("Tem certeza que deseja excluir este evento?")) {
+        let lista = JSON.parse(localStorage.getItem('eventosCadastrados')) || [];
+        lista = lista.filter(ev => ev.id !== id);
+        localStorage.setItem('eventosCadastrados', JSON.stringify(lista));
+        renderizarListaEdicao();
+    }
+}
+
+// --- EDITAR EVENTO (Preencher formulário) ---
+function preencherParaEditar(id) {
+    let lista = JSON.parse(localStorage.getItem('eventosCadastrados')) || [];
+    const evento = lista.find(ev => ev.id === id);
+
+    if (evento) {
+        document.getElementById('nome').value = evento.nome;
+        document.getElementById('data').value = evento.data;
+        document.getElementById('dataTer').value = evento.dataTer;
+        document.getElementById('horario').value = evento.horario;
+        document.getElementById('horarioTer').value = evento.horarioTer;
+        document.getElementById('local').value = evento.local;
+        document.getElementById('descricao').value = evento.descricao;
+        
+        // Remove o antigo para salvar o novo atualizado ao clicar em Salvar
+        excluirEvento(id); 
+        modal.style.display = "none";
+        alert("Dados carregados no formulário. Altere e clique em Salvar.");
+    }
+}
+
