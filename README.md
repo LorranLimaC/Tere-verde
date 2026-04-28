@@ -21,7 +21,7 @@ Teresópolis atrai milhares de visitantes em busca de montanhismo e belezas natu
 ## 🚀 Instruções para Executar o MVP
 Você pode visualizar o MVP de duas formas:
 
-Acesso Rápido: lorranlimac.github.io/Tere-verde/.
+Acesso Rápido: https://lorranlimac.github.io/Tere-verde.
 
 Código Fonte: O projeto completo está disponível no GitHub https://github.com/LorranLimaC/Tere-verde.
 
