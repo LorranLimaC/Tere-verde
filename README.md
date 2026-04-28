@@ -38,9 +38,7 @@ O MVP (Minimum Viable Product) definido para o "Terê Verde Online" é um MVP pr
 ## O que o MVP entrega:
 * Centralização Inteligente: Consolida dados de três unidades de conservação em uma interface única, eliminando a busca de informações em múltiplos sites e portais.
 
-* Previsibilidade Operacional: Oferece o status de abertura das trilhas e a disponibilidade de atividades em tempo real, garantindo que o turista não perca a viagem devido a fechamentos.
-
-* Conexão e Engajamento: Vitrine atualizada de eventos e temporadas de montanhismo para fomentar a cultura de preservação e lazer.
+* Conexão e Engajamento: Vitrine atualizada de eventos e para fomentar a cultura e lazer.
 
 * Acesso online via link, sem necessidade de instalação.
 
@@ -74,7 +72,4 @@ O MVP (Minimum Viable Product) definido para o "Terê Verde Online" é um MVP pr
 
 ## ⚡ Dores do público-alvo:
 * Fragmentação de dados: Dificuldade em encontrar informações organizadas e centralizadas sobre trilhas, cachoeiras e locais de camping, que hoje estão dispersas.
-
-* Incerteza logística e temporal: Perda de tempo para localizar informações atualizadas sobre a temporada de montanhismo e disponibilidade de acesso às trilhas e travessias.
-
 * Falta de detalhes técnicos: Receio de realizar trilhas devido à ausência de dados precisos sobre o nível de dificuldade e tempo estimado de percurso.
