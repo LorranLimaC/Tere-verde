@@ -21,9 +21,9 @@ Teresópolis atrai milhares de visitantes em busca de montanhismo e belezas natu
 ## 🚀 Instruções para Executar o MVP
 Você pode visualizar o MVP de duas formas:
 
-Acesso Rápido: https://lorranlimac.github.io/EcoTere/.
+Acesso Rápido: lorranlimac.github.io/Tere-verde/.
 
-Código Fonte: O projeto completo está disponível no GitHub https://github.com/LorranLimaC/EcoTere.
+Código Fonte: O projeto completo está disponível no GitHub https://github.com/LorranLimaC/Tere-verde.
 
 ## 🏞️ Circuito Terê Verde: Informações adicionais
 * O Circuito Terê Verde é um projeto integrado com o objetivo de promover o ecoturismo em Teresópolis.
