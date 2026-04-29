@@ -1,18 +1,19 @@
 try {
   const eventContainerEl = document.getElementById("eventContainer");
-  if (!eventContainerEl) throw new Error("Elemento pai não definido");
-  
-  // Obtem os eventos armazenados no LocalStorage ou Cria os eventos padrão(Caso não estejam salvos)
+  if (!eventContainerEl) throw new Error("Elemento 'eventContainer' não encontrado no HTML.");
+
+  // --- 1. GESTÃO DE DADOS (LocalStorage) ---
   const events = getEvents();
+
   function getEvents() {
     const storedEvents = localStorage.getItem("eventosCadastrados");
     
     if (storedEvents) {
-      const parsed = JSON.parse(storedEvents)
-      parsed.sort((a, b) => a.data.localeCompare(b.data))
-      return parsed;
+      const parsed = JSON.parse(storedEvents);
+      return parsed.sort((a, b) => a.data.localeCompare(b.data));
     }
 
+    // Eventos padrão caso o LocalStorage esteja vazio
     const eventsDefault = [
       {
         id: crypto.randomUUID(),
@@ -22,8 +23,7 @@ try {
         horario: "07:00",
         horarioTer: "10:00",
         local: "Serra_dos_Orgaos",
-        descricao:
-          "Junte-se a nós no Café da Manhã Beneficente, um encontro especial no Parque Nacional da Serra dos Órgãos, no dia 17 de dezembro de 2026. Das 7h às 10h da manhã, você poderá desfrutar de um café delicioso ao ar livre, em meio à natureza exuberante. A entrada tem o valor de R$ 5,00, e todo o montante será destinado a projetos de conservação ambiental e apoio a comunidades locais. Venha fazer parte dessa manhã de solidariedade e conexão com a natureza!",
+        descricao: "Junte-se a nós no Café da Manhã Beneficente no Parque Nacional da Serra dos Órgãos. Entrada R$ 5,00 destinados à conservação."
       },
       {
         id: crypto.randomUUID(),
@@ -33,8 +33,7 @@ try {
         horario: "09:00",
         horarioTer: "12:00",
         local: "Tres_Picos",
-        descricao:
-          "Participe de uma oficina prática de fotografia ao ar livre, explorando as paisagens deslumbrantes do Parque Nacional da Serra dos Órgãos. Durante o encontro, serão abordadas técnicas de composição, iluminação natural e uso criativo de equipamentos. Ideal para iniciantes e entusiastas. Traga sua câmera ou smartphone e venha registrar momentos únicos em meio à natureza.",
+        descricao: "Oficina prática de fotografia explorando as paisagens do Parque Estadual dos Três Picos."
       },
       {
         id: crypto.randomUUID(),
@@ -44,16 +43,15 @@ try {
         horario: "08:00",
         horarioTer: "11:30",
         local: "Montanhas_Teresopolis",
-        descricao:
-          "Explore as trilhas do Parque Nacional da Serra dos Órgãos com acompanhamento de guias especializados. Durante o percurso, você aprenderá sobre a fauna, flora e a importância da preservação ambiental. Uma experiência enriquecedora para todas as idades, promovendo contato direto com a natureza e consciência ecológica.",
-      },
+        descricao: "Explore as trilhas do Parque Montanhas de Teresópolis com guias especializados."
+      }
     ];
 
-    localStorage.setItem("eventosCadastrados", JSON.stringify(eventsDefault.sort((a, b) => a.data.localeCompare(b.data))))
+    localStorage.setItem("eventosCadastrados", JSON.stringify(eventsDefault));
     return eventsDefault;
   }
 
-  // Classe que constroi o Objeto "Cartão do evento"
+  // --- 2. CLASSE DO CARTÃO DO EVENTO ---
   class EventCard {
     constructor(event, fatherEl) {
       this.eventName = event.nome;
@@ -62,247 +60,137 @@ try {
       this.hourStart = event.horario;
       this.hourEnd = event.horarioTer;
       this.eventSpot = this.formatEventSpot(event.local);
-      this.eventDescription = event.descricao || " ";
+      this.eventDescription = event.descricao || "Sem descrição disponível.";
       this.fatherEl = fatherEl;
     }
 
-    formatEventSpot(eventSpot){
+    formatEventSpot(eventSpot) {
       const spots = {
         Serra_dos_Orgaos: "Parque Nacional da Serra dos Órgãos",
         Tres_Picos: "Parque Estadual dos Três Picos",
         Montanhas_Teresopolis: "Parque Montanhas de Teresópolis"
       };
-    
       return spots[eventSpot] || eventSpot;
     }
 
     built() {
       this.createEventCardElement();
     }
-    
+
+    createElementWithClass(tag, className) {
+      const el = document.createElement(tag);
+      if (className) el.classList.add(...className.split(" "));
+      return el;
+    }
+
     createEventCardElement() {
-      // Criação do Elemento "Cartão do evento"
       const eventCard = this.createElementWithClass("div", "eventCard");
-
-      // Cabeçalho do cartão
-      const eventCardHeader = this.createElementWithClass(
-        "div",
-        "eventCardHeader",
-      );
-
+      
+      // Header
+      const eventCardHeader = this.createElementWithClass("div", "eventCardHeader");
       for (let i = 0; i < 3; i++) {
-        const hole = this.createElementWithClass("div", "hole");
-        eventCardHeader.append(hole);
+        eventCardHeader.append(this.createElementWithClass("div", "hole"));
       }
 
-      // Corpo do cartão
+      // Body
       const eventCardBody = this.createElementWithClass("div", "eventCardBody");
-      const eventCardBody_date = this.createElementWithClass("div", "date");
-      let [ano, mes, dia] = this.dateStart.split("-");
-      eventCardBody_date.textContent = `${dia}/${mes}`;
+      const [ano, mes, dia] = this.dateStart.split("-");
+      
+      const dateEl = this.createElementWithClass("div", "date");
+      dateEl.textContent = `${dia}/${mes}`;
 
-      const eventCardBody_hour = this.createElementWithClass("div", "hour");
-      const eventCardBody_hourStart = this.createElementWithClass(
-        "span",
-        "hour_start",
-      );
-      const eventCardBody_hourEnd = this.createElementWithClass(
-        "span",
-        "hour_end",
-      );
+      const hourEl = this.createElementWithClass("div", "hour");
+      hourEl.textContent = `${this.hourStart} às ${this.hourEnd}`;
 
-      eventCardBody_hourStart.textContent = this.hourStart;
-      eventCardBody_hourEnd.textContent = this.hourEnd;
+      // Modal
+      const modal = this.createModalElement(ano, mes, dia);
 
-      eventCardBody_hour.append(
-        eventCardBody_hourStart,
-        " às ",
-        eventCardBody_hourEnd,
-      );
-
-      // Modal do Evento (Que será inserido no corpo)
-      const eventCardModal = this.createElementWithClass("div", "eventModal");
-      const modalContent = this.createElementWithClass(
-        "div",
-        "eventModal-content",
-      ); // Class SHOW
-
-      // Botão close do Modal
-      const modalCloseBtn = this.createElementWithClass("button", "closeBtn");
-      const closeIcon = this.createElementWithClass("i", "fa-solid fa-x");
-      modalCloseBtn.append(closeIcon);
-
-      //Header do Modal
-      const modalContent_header = this.createElementWithClass(
-        "div",
-        "eventContent-header",
-      );
-      const modalContent_header_h2 = this.createElementWithClass(
-        "h2",
-        "eventName",
-      );
-      modalContent_header_h2.textContent = this.eventName;
-
-      const modalContent_TimeInfo = this.createElementWithClass(
-        "div",
-        "eventTimeInfo",
-      );
-
-      const TimeInfo_dateStart = this.createElementWithClass(
-        "span",
-        "dateStart",
-      );
-      const dateStart_label = this.createElementWithClass("div", "label");
-      dateStart_label.textContent = "Data início";
-      const dateStart_text = document.createElement("div");
-      [ano, mes, dia] = this.dateStart.split("-")
-      dateStart_text.textContent = `${dia}/${mes}/${ano}`;
-      TimeInfo_dateStart.append(dateStart_label, dateStart_text);
-
-      const TimeInfo_dateEnd = this.createElementWithClass("span", "dateEnd");
-      const dateEnd_label = this.createElementWithClass("div", "label");
-      dateEnd_label.textContent = "Data fim";
-      const dateEnd_text = document.createElement("div");
-      [ano, mes, dia] = this.dateEnd.split("-")
-      dateEnd_text.textContent = `${dia}/${mes}/${ano}`;
-      TimeInfo_dateEnd.append(dateEnd_label, dateEnd_text);
-
-      const TimeInfo_hourStart = this.createElementWithClass(
-        "span",
-        "hourStart",
-      );
-      const hourStart_label = this.createElementWithClass("div", "label");
-      hourStart_label.textContent = "Inicia";
-      const hourStart_text = document.createElement("div");
-      hourStart_text.textContent = this.hourStart;
-      TimeInfo_hourStart.append(hourStart_label, hourStart_text);
-
-      const TimeInfo_hourEnd = this.createElementWithClass("span", "hourEnd");
-      const hourEnd_label = this.createElementWithClass("div", "label");
-      hourEnd_label.textContent = "Finaliza";
-      const hourEnd_text = document.createElement("div");
-      hourEnd_text.textContent = this.hourEnd;
-      TimeInfo_hourEnd.append(hourEnd_label, hourEnd_text);
-
-      modalContent_TimeInfo.append(
-        TimeInfo_dateStart,
-        TimeInfo_dateEnd,
-        TimeInfo_hourStart,
-        TimeInfo_hourEnd,
-      );
-
-      const modalContent_eventSpot = this.createElementWithClass(
-        "div",
-        "eventSpot",
-      );
-      const spotSpan = document.createElement("span");
-      spotSpan.textContent = "Local: ";
-      const spotText = document.createTextNode(this.eventSpot);
-      modalContent_eventSpot.append(spotSpan, spotText);
-
-      modalContent_header.append(
-        modalContent_header_h2,
-        modalContent_TimeInfo,
-        modalContent_eventSpot,
-      );
-
-      // Body do modal (Onde fica a descrição)
-      const modalContent_body = this.createElementWithClass(
-        "div",
-        "eventContent-body",
-      );
-      const eventDescription = this.createElementWithClass(
-        "div",
-        "eventDescription",
-      );
-      eventDescription.textContent = this.eventDescription;
-
-      modalContent_body.append(eventDescription);
-
-      modalContent.append(
-        modalCloseBtn,
-        modalContent_header,
-        modalContent_body,
-      );
-      eventCardModal.append(modalContent);
-      eventCardBody.append(
-        eventCardBody_date,
-        eventCardBody_hour,
-        eventCardModal,
-      );
+      eventCardBody.append(dateEl, hourEl, modal);
       eventCard.append(eventCardHeader, eventCardBody);
       this.fatherEl.append(eventCard);
     }
 
-    createElementWithClass(tag, className) {
-      const el = document.createElement(tag);
-      if (className) {
-        el.classList.add(...className.split(" "));
-      }
-      return el;
+    createModalElement(ano, mes, dia) {
+      const modal = this.createElementWithClass("div", "eventModal");
+      const content = this.createElementWithClass("div", "eventModal-content");
+      
+      const closeBtn = this.createElementWithClass("button", "closeBtn");
+      closeBtn.innerHTML = '<i class="fa-solid fa-x"></i>';
+
+      const header = this.createElementWithClass("div", "eventContent-header");
+      header.innerHTML = `
+        <h2 class="eventName">${this.eventName}</h2>
+        <div class="eventTimeInfo">
+          <span><div class="label">Início</div>${dia}/${mes}/${ano}</span>
+          <span><div class="label">Local</div>${this.eventSpot}</span>
+        </div>
+      `;
+
+      const body = this.createElementWithClass("div", "eventContent-body");
+      body.innerHTML = `<div class="eventDescription">${this.eventDescription}</div>`;
+
+      content.append(closeBtn, header, body);
+      modal.append(content);
+      return modal;
     }
   }
 
-  // Função que adiciona os eventListeners
-  function setCardElementClickEvents(cardElement) {
-    if (!(cardElement instanceof HTMLElement)) return;
+  // --- 3. FUNÇÕES DE APOIO E RENDERIZAÇÃO ---
 
+  function setCardElementClickEvents(cardElement) {
     const modal = cardElement.querySelector(".eventModal");
     const closeBtn = cardElement.querySelector(".closeBtn");
 
-    cardElement.addEventListener("click", (e) => {
+    cardElement.addEventListener("click", () => {
       modal.classList.add("show");
     });
 
-    if (closeBtn) {
-      closeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        modal.classList.remove("show");
-      });
-    }
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation(); // Impede que o clique no botão fechar abra o modal de novo
+      modal.classList.remove("show");
+    });
   }
 
-  events.forEach((event) => {
-    const card = new EventCard(event, eventContainerEl);
-    card.built();
-  });
+  // Função Principal de Renderização (Limpa e Filtra)
+  function renderEvents(filtro = "Todos") {
+    eventContainerEl.innerHTML = ""; // Limpa os cards atuais
 
-  const eventCards = eventContainerEl.querySelectorAll(".eventCard");
-  eventCards.forEach((card) => {
-    setCardElementClickEvents(card);
-  });
+    const filteredEvents = events.filter(ev => {
+      return filtro === "Todos" || ev.local === filtro;
+    });
+
+    filteredEvents.forEach(event => {
+      const card = new EventCard(event, eventContainerEl);
+      card.built();
+    });
+
+    // Ativa os eventos de clique nos cards recém-criados
+    const currentCards = eventContainerEl.querySelectorAll(".eventCard");
+    currentCards.forEach(card => setCardElementClickEvents(card));
+  }
+
+  // --- 4. INICIALIZAÇÃO ---
+
+  const filterSelect = document.getElementById("filtroParque");
+  if (filterSelect) {
+    filterSelect.addEventListener("change", (e) => {
+      renderEvents(e.target.value);
+    });
+  }
+
+  // Renderiza tudo ao carregar a página
+  renderEvents();
+
 } catch (error) {
-  console.error(error);
+  console.error("Erro na aplicação:", error);
 }
 
-// --- EXCLUIR EVENTO ---
+// --- FUNÇÕES GLOBAIS (Excluir/Editar) ---
 function excluirEvento(id) {
-    if (confirm("Tem certeza que deseja excluir este evento?")) {
-        let lista = JSON.parse(localStorage.getItem('eventosCadastrados')) || [];
-        lista = lista.filter(ev => ev.id !== id);
-        localStorage.setItem('eventosCadastrados', JSON.stringify(lista));
-        renderizarListaEdicao();
-    }
-}
-
-// --- EDITAR EVENTO (Preencher formulário) ---
-function preencherParaEditar(id) {
+  if (confirm("Deseja excluir este evento?")) {
     let lista = JSON.parse(localStorage.getItem('eventosCadastrados')) || [];
-    const evento = lista.find(ev => ev.id === id);
-
-    if (evento) {
-        document.getElementById('nome').value = evento.nome;
-        document.getElementById('data').value = evento.data;
-        document.getElementById('dataTer').value = evento.dataTer;
-        document.getElementById('horario').value = evento.horario;
-        document.getElementById('horarioTer').value = evento.horarioTer;
-        document.getElementById('local').value = evento.local;
-        document.getElementById('descricao').value = evento.descricao;
-        
-        // Remove o antigo para salvar o novo atualizado ao clicar em Salvar
-        excluirEvento(id); 
-        modal.style.display = "none";
-        alert("Dados carregados no formulário. Altere e clique em Salvar.");
-    }
+    lista = lista.filter(ev => ev.id !== id);
+    localStorage.setItem('eventosCadastrados', JSON.stringify(lista));
+    location.reload(); // Recarrega para atualizar a lista
+  }
 }
-
