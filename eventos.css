@@ -24,22 +24,62 @@ section.eventosTemp{
 }
 
 #eventContainer{
+    margin: 0 auto;
     margin-bottom: 1em;
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     width: 100%;
-    flex: 0 0 auto;
+    max-width: 1280px;
+}
+
+#eventContainer{
+    display: grid;
+    grid-template-columns:  1fr 1fr;
+}
+
+.cardContainer{
+    display: flex;
+    background: #ffffff;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: 1px solid #82b342;
+    cursor: pointer;
+    align-items: center;
+}
+
+.cardContainer .infoPreview{
+    text-align: left;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.infoPreview h3{
+    color: #82b342;
+    font-size: 1.6rem;
+    margin-left: .5rem;
+}
+
+.infoPreview span{
+    font-size: 1.2rem;
+    color: #82b342;
+}
+.infoPreview p{
+    margin-left: .5rem;
+    font-size: 1.2rem;
 }
 
 #eventContainer .eventCard{
     display: inline-block;
     height: 150px;
     width: 8rem;
-    margin: 10px 2rem;
+    margin: 10px;
     border-radius: 15px;
-    cursor: pointer;
-    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    user-select: none;
 }
 
 .eventCard .eventCardHeader{
@@ -181,16 +221,33 @@ section.eventosTemp{
 
 
 
-/* Para tablets e celulares em paisagem (até 768px) */
-@media screen and (max-width: 768px) {
 
-}
+
 
 /* Para celulares em retrato (até 480px) */
 @media screen and (max-width: 480px) {
     #eventContainer .eventCard {
         min-width: 130px;
         margin: 0 1rem;
+    }
+
+    #eventContainer{
+    display: grid;
+    grid-template-columns:  1fr;
+    }
+
+    .cardContainer{
+        display: block;
+        padding-top: 20px;
+    }
+
+    .cardContainer .infoPreview{
+    text-align: center;
+    }
+
+    .eventCard{
+        margin-top: 10px;
+
     }
 
     .eventModal .eventModal-content{
