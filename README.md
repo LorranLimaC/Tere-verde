@@ -2,7 +2,7 @@
 
 * **Mateus Araújo de Oliveira - 06016258** 
 * **Wesley Welisten Rocha Santos Vieira - 06016343**
-* **Marcos Vinicius**
+* **Marcos Vinicius - 01019051**
 * **Pedro Molinna**
 * **Lorran da cunha Lima - 06016891**
 
