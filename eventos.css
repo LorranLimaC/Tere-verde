@@ -219,8 +219,42 @@ section.eventosTemp{
     margin-bottom: 5px;
 }
 
+/* Estilos para o Filtro de Eventos */
+#filtroEventos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    margin-bottom: 30px;
+}
 
+.filtro-btn {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 2px solid #82b342;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #82b342;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
 
+.filtro-btn:hover {
+    background-color: #82b342;
+    color: white;
+    transform: scale(1.05);
+}
+
+.filtro-btn.ativo {
+    background-color: #82b342;
+    color: white;
+}
+
+.cardContainer.oculto {
+    display: none !important;
+}
 
 
 

@@ -93,6 +93,9 @@ try {
       previewH3.append(this.eventName)
       infoPreview.append(previewH3, previewLocation)
 
+      // Armazenar o local original no atributo data para facilitar filtro
+      cardContainer.setAttribute('data-local', this.eventSpot)
+
       // Criação do Elemento "Cartão do evento"
       const eventCard = this.createElementWithClass("div", "eventCard")
 
@@ -284,6 +287,52 @@ try {
   eventCards.forEach((card) => {
     setCardElementClickEvents(card);
   });
+
+  // ========== LÓGICA DE FILTRO DE EVENTOS ==========
+  let filtroAtual = 'todos';
+
+  // Mapa de conversão de IDs de parques para nomes formatados
+  const mapaParques = {
+    'Serra_dos_Orgaos': 'Parque Nacional da Serra dos Órgãos',
+    'Tres_Picos': 'Parque Estadual dos Três Picos',
+    'Montanhas_Teresopolis': 'Parque Montanhas de Teresópolis'
+  };
+
+  function filtrarEventos(filtro) {
+    const cards = eventContainerEl.querySelectorAll(".cardContainer");
+    
+    cards.forEach((card) => {
+      if (filtro === 'todos') {
+        card.classList.remove('oculto');
+      } else {
+        const localEvento = card.getAttribute('data-local');
+        const localFiltro = mapaParques[filtro];
+        
+        if (localEvento === localFiltro) {
+          card.classList.remove('oculto');
+        } else {
+          card.classList.add('oculto');
+        }
+      }
+    });
+  }
+
+  // Adicionar event listeners aos botões de filtro
+  const botoesAtivos = document.querySelectorAll('.filtro-btn');
+  botoesAtivos.forEach((botao) => {
+    botao.addEventListener('click', function() {
+      // Remover classe ativo de todos os botões
+      botoesAtivos.forEach((btn) => btn.classList.remove('ativo'));
+      
+      // Adicionar classe ativo ao botão clicado
+      this.classList.add('ativo');
+      
+      // Aplicar filtro
+      filtroAtual = this.getAttribute('data-filtro');
+      filtrarEventos(filtroAtual);
+    });
+  });
+
 } catch (error) {
   console.error(error);
 }
