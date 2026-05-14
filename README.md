@@ -3,7 +3,6 @@
 * **Mateus Araújo de Oliveira - 06016258** 
 * **Wesley Welisten Rocha Santos Vieira - 06016343**
 * **Marcos Vinicius - 01019051**
-* **Pedro Molinna**
 * **Lorran da cunha Lima - 06016891**
 
 ## 🚩 Situação-Problema #1: Circuito Terê Verde;
@@ -35,7 +34,7 @@ Código Fonte: O projeto completo está disponível no GitHub https://github.com
 ## MVP Definido:
 O MVP (Minimum Viable Product) definido para o "Terê Verde Online" é um MVP protótipo, composto por um website front-end.
 
-## O que o MVP entrega:
+## O que o MVP entrega(🎯 Objetivos):
 * Centralização Inteligente: Consolida dados de três unidades de conservação em uma interface única, eliminando a busca de informações em múltiplos sites e portais.
 
 * Conexão e Engajamento: Vitrine atualizada de eventos e para fomentar a cultura e lazer.
@@ -71,5 +70,6 @@ O MVP (Minimum Viable Product) definido para o "Terê Verde Online" é um MVP pr
 * Fotógrafos de Natureza: Um público muito forte em Teresópolis devido à beleza do Dedo de Deus.
 
 ## ⚡ Dores do público-alvo:
-* Fragmentação de dados: Dificuldade em encontrar informações organizadas e centralizadas sobre trilhas, cachoeiras e locais de camping, que hoje estão dispersas.
-* Falta de detalhes técnicos: Receio de realizar trilhas devido à ausência de dados precisos sobre o nível de dificuldade e tempo estimado de percurso.
+* **Fragmentação de dados:** Dificuldade em encontrar informações organizadas e centralizadas sobre trilhas e cachoeiras, que hoje estão dispersas.
+* **Falta de detalhes técnicos:** Receio de realizar trilhas devido à ausência de dados precisos sobre o nível de dificuldade e tempo estimado de percurso.
+* **Dificuldade para localizar eventos:** Obstáculo para encontrar informações sobre eventos e atividades realizados dentro dos parques.
