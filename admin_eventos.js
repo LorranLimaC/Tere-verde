@@ -1,15 +1,48 @@
 // --- LÓGICA DE SALVAR ---
+// Validação de horários: impedir digitação inválida
+document.getElementById('horario').addEventListener('input', function() {
+    const value = this.value;
+    if (value && (value < '00:00' || value > '23:59')) {
+        alert("❌ Horário inválido. Deve estar entre 00:00 e 23:59.");
+        this.value = '';
+    }
+});
+
+document.getElementById('horarioTer').addEventListener('input', function() {
+    const value = this.value;
+    if (value && (value < '00:00' || value > '23:59')) {
+        alert("❌ Horário inválido. Deve estar entre 00:00 e 23:59.");
+        this.value = '';
+    }
+});
+
 document.getElementById('formEvento').addEventListener('submit', function(e) {
     e.preventDefault();
-    console.log(document.getElementById('data').value)
+
+    const dataInicio = document.getElementById('data').value;
+    const dataTermino = document.getElementById('dataTer').value;
+    const horarioInicio = document.getElementById('horario').value;
+    const horarioTermino = document.getElementById('horarioTer').value;
+
+    // Validação de datas: data de início não pode ser maior que data de término
+    if (dataInicio > dataTermino) {
+        alert("❌ A data de início não pode ser posterior à data de término.");
+        return;
+    }
+
+    // Validação de horários: horário de início não pode ser maior que horário de término se datas forem iguais
+    if (dataInicio === dataTermino && horarioInicio > horarioTermino) {
+        alert("❌ O horário de início não pode ser posterior ao horário de término no mesmo dia.");
+        return;
+    }
 
     const novoEvento = {
         id: Date.now(),
         nome: document.getElementById('nome').value,
-        data: document.getElementById('data').value,
-        dataTer: document.getElementById('dataTer').value,
-        horario: document.getElementById('horario').value,
-        horarioTer: document.getElementById('horarioTer').value,
+        data: dataInicio,
+        dataTer: dataTermino,
+        horario: horarioInicio,
+        horarioTer: horarioTermino,
         local: document.getElementById('local').value,
         descricao: document.getElementById('descricao').value
     };
