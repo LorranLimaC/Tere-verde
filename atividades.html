@@ -3,61 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tere Verde</title>
+    <title>Terê Verde</title>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="atividades.css">
 </head>
+
 <header class="menu">
-   <div class = "logotipo">
+    <div class="logotipo">
         <a href="index.html">
-            <img src="png/Logotipo-TereVerde.png" alt="Tere Verde Logotipo">
+            <img src="png/Logotipo-TereVerde.png" alt="Logotipo Terê Verde">
         </a>
     </div>
+
     <nav>
-        <ul>   
+        <ul>
             <li><a href="index.html">Início</a></li>
             <li><a href="login.html">Login</a></li>
         </ul>
-
     </nav>
 </header>
+
 <body>
     <section class="atividades">
-        
-        <h1 id ="parque"><a href="atividades.html">Atividades</a></h1>
+
+        <h1 id="parque">
+            <a href="atividades.html">Atividades</a>
+        </h1>
+
         <section class="filtros">
             <div class="conteudos-filtros">
-                    <label for="filtroParque">Parque:</label>
-                    <select id="filtroParque">
-                        <option value="Todos">Todos os parques</option>
-                        <option value="Parque nacional da serra dos Órgãos">Parque nacional da serra dos Órgãos</option>
-                        <option value="Parque estadual dos tres picos">Parque estadual dos tres picos</option>
-                        <option value="Parque montanhas de teresopolis">Parque montanhas de teresopolis</option>
-                    </select>
-                    <label for="filtroDificuldade">Dificuldade:</label>
-                    <select id="filtroDificuldade">
-                        <option value="Todos">Todas as dificuldades</option>
-                        <option value="Fácil">Fácil</option>
-                        <option value="Médio">Médio</option>
-                        <option value="Difícil">Difícil</option>
-                        
-                    </select>
-                    <label for="filtroTipo">Tipo:</label>
-                    <select id="filtroTipo">
-                        <option value="Todos">Todas as atividades</option>
-                        <option value="trilha">Trilhas</option>
-                        <option value="cachoeira">Cachoeiras</option>
-                        <option value="escalada">Escalada</option>
-                    </select>
-            </div>  
-         </section>
+
+                <label for="filtroParque">Parque:</label>
+
+                <select id="filtroParque">
+                    <option value="Todos">Todos os parques</option>
+
+                    <option value="Parque Nacional da Serra dos Órgãos">
+                        Parque Nacional da Serra dos Órgãos
+                    </option>
+
+                    <option value="Parque Estadual dos Três Picos">
+                        Parque Estadual dos Três Picos
+                    </option>
+
+                    <option value="Parque Montanhas de Teresópolis">
+                        Parque Montanhas de Teresópolis
+                    </option>
+                </select>
+
+                <label for="filtroDificuldade">Dificuldade:</label>
+
+                <select id="filtroDificuldade">
+                    <option value="Todos">Todas as dificuldades</option>
+                    <option value="Fácil">Fácil</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Difícil">Difícil</option>
+                </select>
+
+                <label for="filtroTipo">Tipo:</label>
+
+                <select id="filtroTipo">
+                    <option value="Todos">Todas as atividades</option>
+                    <option value="trilha">Trilhas</option>
+                    <option value="cachoeira">Cachoeiras</option>
+                    <option value="escalada">Escalada</option>
+                </select>
+
+            </div>
+        </section>
+
         <div id="conteudoAtividades">
             <!-- Cards serão gerados pelo JavaScript -->
         </div>
-</section>
-    
-    
+
+    </section>
 </body>
+
 <footer class="rodape">
     <p>&copy; 2026 Terê Verde. Todos os direitos reservados.</p>
-</footer><script src="atividades.js"></script></html>
+</footer>
+
+<script src="atividades.js"></script>
+</html>

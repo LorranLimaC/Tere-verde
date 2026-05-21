@@ -5,91 +5,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo - Criar Evento</title>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="admin_eventos.css">
-
 </head>
+
 <header class="menu">
+
     <div class="logotipo">
         <a href="index.html">
-            <img src="png/Logotipo-TereVerde.png" alt="Tere Verde Logotipo">
+            <img
+                src="png/Logotipo-TereVerde.png"
+                alt="Logotipo Terê Verde"
+            >
         </a>
     </div>
+
     <nav>
         <ul>
-            <li><a href="index.html">inicio</a></li>
+            <li><a href="index.html">Início</a></li>
             <li><a href="login.html">Sair</a></li>
         </ul>
-
     </nav>
+
 </header>
 
 <body>
 
     <div class="container-admin">
-        <h2 style="text-align: center; color: #2d5016;">📅 Cadastrar Novo Evento</h2>
-        <p style="text-align: center; font-size: 14px;">Preencha os dados abaixo para publicar no site.</p>
+
+        <h2 style="text-align: center; color: #2d5016;">
+            📅 Cadastrar Novo Evento
+        </h2>
+
+        <p style="text-align: center; font-size: 14px;">
+            Preencha os dados abaixo para publicar no site.
+        </p>
+
         <hr>
 
         <form id="formEvento">
+
             <div class="form-grupo">
+
                 <label for="nome">Nome do Evento*</label>
-                <input type="text" id="nome" placeholder="Ex: Mutirão de Limpeza PARNASO" required>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Ex: Mutirão de Limpeza PARNASO"
+                    required
+                >
+
             </div>
 
             <div class="form-grupo" style="display: flex; gap: 10px;">
+
                 <div style="flex: 1;">
-                    <label for="data">Data Inicio*</label>
-                    <input type="date" id="data" required>
+
+                    <label for="data">Data de Início*</label>
+
+                    <input
+                        type="date"
+                        id="data"
+                        required
+                    >
+
                 </div>
+
                 <div style="flex: 1;">
-                    <label for="dataTer">Data Termino*</label>
-                    <input type="date" id="dataTer" required>
+
+                    <label for="dataTer">Data de Término*</label>
+
+                    <input
+                        type="date"
+                        id="dataTer"
+                        required
+                    >
+
                 </div>
+
                 <div style="flex: 1;">
-                    <label for="horario">Horário Inicio*</label>
-                    <input type="time" id="horario" required>
+
+                    <label for="horario">Horário de Início*</label>
+
+                    <input
+                        type="time"
+                        id="horario"
+                        required
+                    >
+
                 </div>
+
                 <div style="flex: 1;">
-                    <label for="horarioTer">Horário Termino*</label>
-                    <input type="time" id="horarioTer" required>
+
+                    <label for="horarioTer">Horário de Término*</label>
+
+                    <input
+                        type="time"
+                        id="horarioTer"
+                        required
+                    >
+
                 </div>
+
             </div>
 
-            <label for="Local">Local:</label>
+            <label for="local">Local:</label>
+
             <select id="local" required>
-                <option value="Serra_dos_Orgaos">Parque nacinal da serra dos Órgãos</option>
-                <option value="Tres_Picos">Parque estadual dos tres picos</option>
-                <option value="Montanhas_Teresopolis">Parque montanhas de teresopolis</option>
+
+                <option value="Serra_dos_Orgaos">
+                    Parque Nacional da Serra dos Órgãos
+                </option>
+
+                <option value="Tres_Picos">
+                    Parque Estadual dos Três Picos
+                </option>
+
+                <option value="Montanhas_Teresopolis">
+                    Parque Montanhas de Teresópolis
+                </option>
+
             </select>
 
             <div class="form-grupo">
+
                 <label for="descricao">Descrição Breve</label>
-                <textarea id="descricao" rows="4" placeholder="Detalhes sobre o evento..."></textarea>
+
+                <textarea
+                    id="descricao"
+                    rows="4"
+                    placeholder="Detalhes sobre o evento..."
+                ></textarea>
+
             </div>
 
-            <button type="submit" class="btn">Salvar Evento💾</button>
-
+            <button type="submit" class="btn">
+                Salvar Evento 💾
+            </button>
 
         </form>
 
-        <button class="btn" id="btnAbrirEdicao">Gerenciar Eventos ⚙️</button>
+        <button class="btn" id="btnAbrirEdicao">
+            Gerenciar Eventos ⚙️
+        </button>
 
         <div id="modalEdicao" class="modal">
+
             <div class="modal-conteudo">
+
                 <span class="fechar">&times;</span>
+
                 <h3>Gerenciar Eventos Salvos</h3>
+
                 <div id="listaEdicao">
                 </div>
+
             </div>
+
         </div>
 
     </div>
 
-
 </body>
+
 <script src="admin_eventos.js"></script>
 <script src="event.js"></script>
+
 <footer class="rodape">
     <p>&copy; 2026 Terê Verde. Todos os direitos reservados.</p>
 </footer>

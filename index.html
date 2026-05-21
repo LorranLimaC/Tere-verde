@@ -1,138 +1,155 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tere Verde</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="eventos.css" />
-  </head>
-  <header class="menu">
-    <div class="logotipo">
-      <a href="index.html">
-        <img src="png/Logotipo-TereVerde.png" alt="Tere Verde Logotipo" />
-      </a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terê Verde</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="eventos.css" />
+</head>
+
+<header class="menu">
+  <div class="logotipo">
+    <a href="index.html">
+      <img src="png/Logotipo-TereVerde.png" alt="Logotipo Terê Verde" />
+    </a>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="atividades.html">Atividades</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+</header>
+
+<body>
+  <section class="banner">
+    <h1 id="tituloBanner">Bem-vindo ao Terê Verde</h1>
+
+    <p>
+      Descubra atividades e oportunidades para se conectar com a natureza.
+    </p>
+
+    <p>Venha conhecer os parques de Teresópolis.</p>
+
+    <div id="parquesLista">
+      <button class="parqueBtn" data-parque="Parque Nacional da Serra dos Órgãos">
+        Parque Nacional da Serra dos Órgãos
+      </button>
+
+      <button class="parqueBtn" data-parque="Parque Estadual dos Três Picos">
+        Parque Estadual dos Três Picos
+      </button>
+
+      <button class="parqueBtn" data-parque="Parque Montanhas de Teresópolis">
+        Parque Montanhas de Teresópolis
+      </button>
     </div>
-    <nav>
+
+    <h1 id="TituloParque">Parque Nacional da Serra dos Órgãos</h1>
+
+    <div id="conteudoBanner">
+      <!-- overlays invisíveis ocupam metade esquerda/direita da imagem -->
+
+      <button onclick="mudarManual(-1)" class="btn-seta btn-voltar" aria-label="Voltar"></button>
+
+      <img id="meuBanner" src="png/serraDosOrgoas/pedradosino.jpeg" alt="Banner do parque" />
+
+      <button onclick="mudarManual(1)" class="btn-seta btn-avancar" aria-label="Avançar"></button>
+    </div>
+
+    <div id="areasTitulo">
+      <h1>Áreas de convivência e atividades</h1>
+    </div>
+
+    <div id="areasAtividades">
       <ul>
-        <li><a href="atividades.html">Atividades</a></li>
-        <li><a href="login.html">Login</a></li>
+        <li class="atv-estacionamento">
+          <img src="png/Icones/estacionamento.png" alt="Estacionamento" />
+          <span>Estacionamento</span>
+        </li>
+
+        <li class="atv-camping">
+          <img src="png/Icones/campings.png" alt="Camping" />
+          <span>Camping</span>
+        </li>
+
+        <li class="atv-cachoeira">
+          <img src="png/Icones/cachoeira.png" alt="Cachoeira" />
+          <span>Cachoeira</span>
+        </li>
+
+        <li class="atv-trilha">
+          <img src="png/Icones/trilha.png" alt="Trilhas" />
+          <span>Trilhas</span>
+        </li>
+
+        <li class="atv-escalada">
+          <img src="png/Icones/escalador.png" alt="Escalada" />
+          <span>Escalada</span>
+        </li>
       </ul>
-    </nav>
-  </header>
-  <body>
-    <section class="banner">
-      <h1 id="tituloBanner">Bem-vindo à Terê Verde</h1>
-      <p>
-        Descobrir atividades e oportunidades para você se conectar com a
-        natureza.
-      </p>
-      <p>Venha conhecer os parques de terêsopolis</p>
-      <div id="parquesLista">
-        <button
-          class="parqueBtn"
-          data-parque="Parque nacinal da serra dos Órgãos"
-        >
-          Parque nacinal da serra dos Órgãos
-        </button>
-        <button class="parqueBtn" data-parque="Parque estadual dos tres picos">
-          Parque estadual dos tres picos
-        </button>
-        <button class="parqueBtn" data-parque="Parque montanhas de teresopolis">
-          Parque Montanhas de Teresópolis
-        </button>
-      </div>
-      <h1 id="TituloParque">Parque nacinal da serra dos Órgãos</h1>
-      <div id="conteudoBanner">
-        <!-- overlays invisíveis ocupam metade esquerda/direita da imagem -->
-        <button
-          onclick="mudarManual(-1)"
-          class="btn-seta btn-voltar"
-          aria-label="Voltar"
-        ></button>
-        <img
-          id="meuBanner"
-          src="png/serraDosOrgoas/pedradosino.jpeg"
-          alt="banner"
-        />
-        <button
-          onclick="mudarManual(1)"
-          class="btn-seta btn-avancar"
-          aria-label="Avançar"
-        ></button>
-      </div>
-      <div id="areasTitulo">
-        <h1>Áreas de convivência e atividades</h1>
-      </div>
-      <div id="areasAtividades">
+    </div>
+
+    <div id="botaoMaisInfoContainer">
+      <button id="botaoMaisInfo">
+        Mais informações sobre o parque
+      </button>
+    </div>
+
+    <div>
+      <nav>
         <ul>
-          <li class="atv-estacionamento">
-            <img
-              src="png/Icones/estacionamento.png"
-              alt="estacionamento"
-            /><span>Estacionamento</span>
-          </li>
-          <li class="atv-camping">
-            <img src="png/Icones/campings.png" alt="campings" /><span
-              >Camping</span
-            >
-          </li>
-          <li class="atv-cachoeira">
-            <img src="png/Icones/cachoeira.png" alt="cachoeiras" /><span
-              >Cachoeira</span
-            >
-          </li>
-          <li class="atv-trilha">
-            <img src="png/Icones/trilha.png" alt="trilhas" /><span
-              >Trilhas</span
-            >
-          </li>
-          <li class="atv-escalada">
-            <img src="png/Icones/escalador.png" alt="escalada" /><span
-              >Escalada</span
-            >
+          <li>
+            <button class="parqueBtn">
+              <a href="atividades.html">
+                Trilhas e cachoeiras da região
+              </a>
+            </button>
           </li>
         </ul>
-      </div>
-      <div id="botaoMaisInfoContainer">
-        <button id="botaoMaisInfo">Mais informações sobre o parque</button>
-      </div>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <button class="parqueBtn">
-                <a href="atividades.html">Trilhas e cachoeiras da região</a>
-              </button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </section>
-    <section class="eventosTemp">
-      <h2>Eventos</h2>
-      <p>Fique por dentro de todos os eventos</p>
-      <div id="filtroEventos" class="filtro-eventos">
-        <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
-        <button class="filtro-btn" data-filtro="Serra_dos_Orgaos">Parque Nacional da Serra dos Órgãos</button>
-        <button class="filtro-btn" data-filtro="Tres_Picos">Parque Estadual dos Três Picos</button>
-        <button class="filtro-btn" data-filtro="Montanhas_Teresopolis">Parque Montanhas de Teresópolis</button>
-      </div>
-      <div class="eventosConatiner" id="eventContainer">
+      </nav>
+    </div>
+  </section>
 
-      </div>
-    </section>
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="event.js"></script>
-  </body>
-  <footer class="rodape">
-    <p>&copy; 2026 Terê Verde. Todos os direitos reservados.</p>
-  </footer>
+  <section class="eventosTemp">
+    <h2>Eventos</h2>
+
+    <p>Fique por dentro de todos os eventos.</p>
+
+    <div id="filtroEventos" class="filtro-eventos">
+      <button class="filtro-btn ativo" data-filtro="todos">
+        Todos
+      </button>
+
+      <button class="filtro-btn" data-filtro="Serra_dos_Orgaos">
+        Parque Nacional da Serra dos Órgãos
+      </button>
+
+      <button class="filtro-btn" data-filtro="Tres_Picos">
+        Parque Estadual dos Três Picos
+      </button>
+
+      <button class="filtro-btn" data-filtro="Montanhas_Teresopolis">
+        Parque Montanhas de Teresópolis
+      </button>
+    </div>
+
+    <div class="eventosConatiner" id="eventContainer">
+    </div>
+  </section>
+
+  <script type="text/javascript" src="index.js"></script>
+  <script type="text/javascript" src="event.js"></script>
+</body>
+
+<footer class="rodape">
+  <p>&copy; 2026 Terê Verde. Todos os direitos reservados.</p>
+</footer>
+
 </html>
