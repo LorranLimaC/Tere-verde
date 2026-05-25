@@ -16,7 +16,7 @@ try {
     const eventsDefault = [
       {
         id: crypto.randomUUID(),
-        nome: "Café da manhã beneficênte",
+        nome: "Café da manhã beneficente",
         data: "2026-12-17",
         dataTer: "2026-12-17",
         horario: "07:00",
