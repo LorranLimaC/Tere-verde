@@ -298,6 +298,24 @@ try {
     'Montanhas_Teresopolis': 'Parque Montanhas de Teresópolis'
   };
 
+  const parqueIdPorNome = Object.fromEntries(
+    Object.entries(mapaParques).map(([id, nome]) => [nome, id]),
+  );
+
+  window.filtrarEventosPorParqueNome = function (parqueNome) {
+    const filtro = parqueIdPorNome[parqueNome];
+    if (!filtro) return;
+
+    const botaoFiltro = document.querySelector(`.filtro-btn[data-filtro="${filtro}"]`);
+    if (botaoFiltro) {
+      const botoesAtivos = document.querySelectorAll('.filtro-btn');
+      botoesAtivos.forEach((btn) => btn.classList.remove('ativo'));
+      botaoFiltro.classList.add('ativo');
+    }
+
+    filtrarEventos(filtro);
+  };
+
   function filtrarEventos(filtro) {
     const cards = eventContainerEl.querySelectorAll(".cardContainer");
     

@@ -25,8 +25,15 @@ let sliderInterval = null;
 let parqueAtual = 'parque nacinal da serra dos órgãos';
 let imagensAtuais = imagens;
 
+function normalizarTexto(texto) {
+    return (texto || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase();
+}
+
 function setImagensAtuaisPorParque(nomeParque) {
-    const key = (nomeParque || parqueAtual || '').toLowerCase();
+    const key = normalizarTexto(nomeParque || parqueAtual || '');
 
     if (key.includes('montanhas')) {
         // Garantir alternância dos 3 itens de Montanhas de Teresópolis
@@ -52,7 +59,7 @@ function configurarAreasAtividades(parqueNome) {
 
     if (!estacionamento || !camping || !cachoeira || !trilha || !escalada) return;
 
-    const key = parqueNome.trim().toLowerCase();
+    const key = normalizarTexto(parqueNome.trim());
     if (key.includes('montanhas')) {
         estacionamento.style.display = 'none';
         camping.style.display = 'flex';
@@ -176,7 +183,7 @@ const modalDataMontanhas = {
 };
 
 const modalDataTresPicos = {
-    titulo: 'Informações Tres Picos',
+    titulo: 'Informações Três Picos',
     secoes: [
         {
             titulo: 'Horário de Funcionamento',
@@ -279,8 +286,9 @@ function atualizarModalPorParque(parqueNome, modal) {
     const title = modal.querySelector('h2');
     if (!secoesContainer || !title) return;
 
-    const isMontanhas = parqueNome && parqueNome.toLowerCase().includes('montanhas');
-    const isTresPicos = parqueNome && parqueNome.toLowerCase().includes('tres picos');
+    const key = normalizarTexto(parqueNome);
+    const isMontanhas = key.includes('montanhas');
+    const isTresPicos = key.includes('tres picos');
 
     if (isMontanhas) {
         title.textContent = modalDataMontanhas.titulo;
@@ -370,8 +378,8 @@ window.addEventListener('load', () => {
         }
     });
 
-    // Botões de parque
-    const parqueBtns = document.querySelectorAll('.parqueBtn');
+    // Botões de parque (apenas os que têm data-parque)
+    const parqueBtns = document.querySelectorAll('.parqueBtn[data-parque]');
     const tituloParque = document.getElementById('TituloParque');
     parqueBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -384,6 +392,9 @@ window.addEventListener('load', () => {
             indexatual = 0;
             updateBanner();
             configurarAreasAtividades(nome);
+            if (window.filtrarEventosPorParqueNome) {
+                window.filtrarEventosPorParqueNome(nome);
+            }
             reiniciarTimer();
         });
     });
